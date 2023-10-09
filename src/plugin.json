@@ -7,14 +7,27 @@
     "keywords": ["panel"],
     "description": "Display moving counter for countdown countup",
     "author": {
-      "name": "Sameeraswal"
+      "name": "Sameer Singh Aswal"
     },
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
     "links": [],
-    "screenshots": [],
+    "screenshots": [
+      {
+        "name": "Sample counter",
+        "path": "img/screenshot-1.png"
+      },
+      {
+        "name": "Sample counter 3 digit value",
+        "path": "img/screenshot-2.png"
+      },
+      {
+        "name": "Counter in transition",
+        "path": "img/screenshot-3.png"
+      }
+    ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
