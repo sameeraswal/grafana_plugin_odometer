@@ -3,7 +3,36 @@
 Remove any remaining comments before publishing as these may be displayed on Grafana.com -->
 # Odometer
 
-Display moving counter for countdown countup
+Description:
+The Grafana Odometer Plugin is a visualization tool designed to display counters in the form of an odometer. It adds a dynamic and engaging element to your Grafana dashboards, making your data come alive as the numbers change in a manner similar to how digits move in a physical meter.
+
+Features:
+This plugin offers two distinct types of animations:
+
+1. Odometer Animation:
+With the Odometer animation, your numbers will move gracefully, just like the digits in a traditional mechanical meter. This style of animation brings a touch of elegance and nostalgia to your data visualization.
+
+2. Counter Animation:
+The Counter animation, on the other hand, simulates the way numbers change in a digital meter. It offers a modern and sleek representation, making your data feel contemporary and cutting-edge.
+
+Installation:
+To install this Grafana Odometer Plugin, follow these steps:
+
+1. Download the plugin zip file from [https://github.com/sameeraswal/grafana_plugin_odometer/raw/v1.0.0/sameeraswal-odometer-panel-1.0.0.zip].
+2. Extract the contents to your Grafana plugins directory, which is typically located at 'data/plugins' or '/var/lib/grafana/plugins' on a Unix-based system.
+3. Restart your Grafana server to activate the plugin.
+
+Usage:
+1. After installation, you can add the Odometer visualization to your Grafana dashboard.
+
+2. Create or edit a panel and select the Odometer visualization from the list of available visualizations.
+
+3. Configure the panel settings, including data sources and queries, to display your desired metrics.
+
+4. Customize the animation type to choose between the Odometer and Counter animations.
+
+5. Save the panel configuration, and the Odometer visualization will display your data with the selected animation style.
+
 
 <!-- To help maximize the impact of your README and improve usability for users, we propose the following loose structure:
 
