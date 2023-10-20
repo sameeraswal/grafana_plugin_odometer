@@ -17,10 +17,12 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
     valEnd = field?.values.get(field.values.length - 1)
   }
   );
+  let animationType   = options.animationType;
 
   return (
       <div>
         <Odometer
+          animation={animationType}
           format="d"
           duration={5000}
           value={valEnd}

@@ -1,7 +1,6 @@
-type SeriesSize = 'sm' | 'md' | 'lg';
+type AnimationType = undefined | 'count';
 
-export interface SimpleOptions {
-  text: string;
-  showSeriesCount: boolean;
-  seriesCountSize: SeriesSize;
+export interface SimpleOptions { 
+  showAdvancedOptions : boolean;
+  animationType       : AnimationType;
 }

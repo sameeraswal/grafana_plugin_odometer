@@ -4,37 +4,27 @@ import { SimplePanel } from './components/SimplePanel';
 
 export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions((builder) => {
   return builder
-    .addTextInput({
-      path: 'text',
-      name: 'Simple text option',
-      description: 'Description of panel option',
-      defaultValue: 'Default value of text input option',
-    })
     .addBooleanSwitch({
-      path: 'showSeriesCount',
-      name: 'Show series counter',
+      path: 'showAdvancedOptions',
+      name: 'Advanced Options',
       defaultValue: false,
     })
     .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
+      path: 'animationType',
+      defaultValue: 'undefined',
+      name: 'Animation type',
       settings: {
         options: [
           {
-            value: 'sm',
-            label: 'Small',
+            value: 'undefined',
+            label: 'Odometer',
           },
           {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
+            value: 'count',
+            label: 'Counter',
           },
         ],
       },
-      showIf: (config) => config.showSeriesCount,
-    });
+      showIf: (config) => config.showAdvancedOptions,
+    })
 });
