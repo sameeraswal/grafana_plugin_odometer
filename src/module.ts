@@ -12,7 +12,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
     .addRadio({
       path: 'animationType',
       defaultValue: 'undefined',
-      name: 'Animation type',
+      name: 'Animation type(Refresh the dashboard after changing the animation type)',
       settings: {
         options: [
           {
