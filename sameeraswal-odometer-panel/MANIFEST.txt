@@ -1,0 +1,37 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "community",
+  "signedByOrg": "sameeraswal",
+  "signedByOrgName": "sameeraswal",
+  "plugin": "sameeraswal-odometer-panel",
+  "version": "1.0.0",
+  "time": 1698518912775,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "LICENSE": "c5accbbd8546e94c34aed24afe689a617627d18eed5a6c48277e48db57c23851",
+    "CHANGELOG.md": "ba613d6f914b27dce9ace4d8c0cb074273c9eb6c536d8e7ac24c5ce6ae941fd0",
+    "module.js.map": "066a3b21eb69179300c6e082f67d7cd122d2295ec6ac7b85c9590dd6ffdd1aba",
+    "plugin.json": "20180933ded2a9afca6606411744819c67f941cf3675623fbe5c3ca38aa50542",
+    "README.md": "9601f68001e4d407eb579e4d9bb7745e9f46ace99838a0a4803decba9299eed4",
+    "img/screenshot-2.png": "05e9453a46f0a9a2089d62c12b0c7a59f2a42f7319d77331f0c89c53fafb3988",
+    "img/screenshot-3.png": "496c8c6929ff70522c93b8548e184361af25cdab87a92dec4f667918f61e2378",
+    "img/screenshot-1.png": "92db9e9c0409558961991c38daf95efff411fc5de78126308a7c3e3fdbebe8d8",
+    "img/logo.svg": "1defc6f7e585c67657bcfd8fddc599ee7dfa82f8674413f49fa274c2cd453ec6",
+    "module.js": "ee9676d1b31f0d66690180b5f8f1c2f0525b56cc9d2edb38c55e7ce5e8658d9f"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.10
+Comment: https://openpgpjs.org
+
+wrkEARMKAAYFAmU9V4EAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5yyXAgkBxjE8o7wLgk/zX+B5xflN/68NyytPh+s772J877sXNxnoRsYF
+LLcS9nfMwWHhq2otDFv01k0Xrwg8Y5x8cLmpo20CCQHDFN/Lw5qU7AlMGLxV
+DK4sSmHNOVVgum8ueGRzvWaMJE8cg1jCxDraYkA8oBXWtHvdMj2wpcUaOvbg
+zZjDn7Do5A==
+=KoE0
+-----END PGP SIGNATURE-----
