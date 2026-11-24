@@ -4,7 +4,8 @@ import { SimpleOptions } from 'types';
 import { getAnimation, getDuration, getFormat, getLatestValue } from 'utils';
 
 import Odometer from 'react-odometerjs';
-import './raw.githubusercontent.com_HubSpot_odometer_master_themes_odometer-theme-car.css';
+import { css } from '@emotion/css';
+import { odometerCss } from './odometerStyles';
 
 interface Props extends PanelProps<SimpleOptions> {}
 
@@ -12,6 +13,9 @@ interface Props extends PanelProps<SimpleOptions> {}
 const DIGIT_WIDTH_RATIO = 0.8;
 const MAX_FONT_SIZE = 100;
 const MIN_FONT_SIZE = 12;
+
+// Theme styles, scoped to the panel wrapper (the odometer element is a descendant of it).
+const odometerStyles = css(odometerCss);
 
 export function getFontSize(value: number, format: string, width: number, height: number): number {
   const chars = Math.max(String(Math.trunc(Math.abs(value))).length + (format.includes('.') ? format.split('.')[1].length + 1 : 0), 1);
@@ -30,6 +34,7 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
   return (
     <div
       data-testid="odometer-panel"
+      className={odometerStyles}
       style={{
         width,
         height,

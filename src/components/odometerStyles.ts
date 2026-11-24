@@ -1,26 +1,25 @@
-@import url("//fonts.googleapis.com/css?family=Arimo");
+/**
+ * Odometer "car" theme, adapted from HubSpot/odometer (MIT):
+ * https://github.com/HubSpot/odometer/blob/master/themes/odometer-theme-car.css
+ *
+ * Kept as a string and applied with Emotion's `css` (scoped to the panel) because
+ * Grafana plugins must not import .css files directly. Differences from upstream:
+ * no Google Fonts @import (system font fallback instead) and no IE6/7 `*` hacks.
+ */
+export const odometerCss = `
 .odometer.odometer-auto-theme, .odometer.odometer-theme-car {
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
   position: relative;
 }
 .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-car .odometer-digit {
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
   position: relative;
 }
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-car .odometer-digit .odometer-digit-spacer {
   display: inline-block;
   vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
   visibility: hidden;
 }
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-car .odometer-digit .odometer-digit-inner {
@@ -85,7 +84,7 @@
   -moz-border-radius: 0.34em;
   -webkit-border-radius: 0.34em;
   border-radius: 0.34em;
-  font-family: "Arimo", monospace;
+  font-family: "Arimo", "Helvetica Neue", Arial, sans-serif;
   padding: 0.15em;
   background: #000;
   color: #eee0d3;
@@ -133,3 +132,4 @@
 .odometer {
     font-size: 100px;
 }
+`;
