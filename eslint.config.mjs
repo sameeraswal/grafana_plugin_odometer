@@ -23,8 +23,6 @@ export default defineConfig([
       '**/lib-cov',
       '**/coverage',
       '**/dist/',
-      // Committed, pre-built (minified) plugin output from earlier releases - not source code.
-      'sameeraswal-odometer-panel/',
       '**/artifacts/',
       '**/work/',
       '**/ci/',
