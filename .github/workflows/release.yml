@@ -23,3 +23,5 @@ jobs:
         with:
           # Access policy token with the plugins:write scope, stored as a repository secret.
           policy_token: ${{ secrets.GRAFANA_API_KEY }}
+          # The action defaults to Node 20; the plugin build needs Node 24 (see engines in package.json).
+          node-version: '24'
