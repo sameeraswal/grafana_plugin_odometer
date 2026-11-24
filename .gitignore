@@ -33,3 +33,6 @@ e2e-results/
 .idea
 
 .eslintcache
+# Packaged plugin output (CI renames dist/ to the plugin id; a stale folder breaks that)
+sameeraswal-odometer-panel/
+sameeraswal-odometer-panel-*.zip
