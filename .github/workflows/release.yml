@@ -19,7 +19,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: grafana/plugin-actions/build-plugin@build-plugin/v1.2.0
+      - uses: grafana/plugin-actions/build-plugin@build-plugin/v2.0.2
         with:
           # Access policy token with the plugins:write scope, stored as a repository secret.
           policy_token: ${{ secrets.GRAFANA_API_KEY }}
