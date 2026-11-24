@@ -52,6 +52,18 @@ describe('SimplePanel', () => {
     expect(screen.getByTestId('odometer').textContent).toBe('0');
   });
 
+  it('applies the odometer theme through Emotion (no CSS file import)', () => {
+    render(<SimplePanel {...makeProps([5])} />);
+    const el = screen.getByTestId('odometer-panel');
+    expect(el.className).toMatch(/css-/);
+    const injected = Array.from(document.styleSheets)
+      .flatMap((sheet) => Array.from(sheet.cssRules))
+      .map((rule) => rule.cssText)
+      .join('\n');
+    expect(injected).toContain('odometer-theme-car');
+    expect(injected).toContain(el.className.split(' ').find((c) => c.startsWith('css-')) as string);
+  });
+
   it('sizes the wrapper to the panel', () => {
     render(<SimplePanel {...makeProps([5])} />);
     const el = screen.getByTestId('odometer-panel');
