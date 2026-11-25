@@ -25,6 +25,19 @@ describe('themes', () => {
     expect(getThemeCss(undefined)).toContain('odometer-theme-car');
   });
 
+  it('car only highlights the last digit in the classic digit style', () => {
+    const car = THEME_CSS.car;
+    expect(car).toContain('&.odo-classic .odometer.odometer-theme-car .odometer-digit:last-child');
+    // the unscoped last-child rule must not carry the highlight colours
+    const unscoped = car.slice(car.indexOf('.odometer.odometer-theme-car .odometer-digit:last-child {'));
+    expect(unscoped.slice(0, unscoped.indexOf('}'))).not.toContain('background');
+  });
+
+  it.each(Object.keys(THEME_CSS))('%s theme has a decimals style that targets digits after the radix mark', (name) => {
+    const css = THEME_CSS[name as keyof typeof THEME_CSS];
+    expect(css).toContain(`&.odo-decimals .odometer.odometer-theme-${name} .odometer-radix-mark ~ .odometer-digit`);
+  });
+
   it('does not pull in external resources or IE-only hacks', () => {
     for (const css of [structuralCss, ...Object.values(THEME_CSS)]) {
       expect(css).not.toContain('@import');

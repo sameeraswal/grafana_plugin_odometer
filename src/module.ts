@@ -67,10 +67,25 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel)
         defaultValue: DEFAULT_OPTIONS.theme,
         settings: {
           options: [
-            { value: 'car', label: 'Car (dashboard)' },
-            { value: 'minimal', label: 'Minimal' },
+            { value: 'car', label: 'Car (white on black)' },
+            { value: 'light', label: 'Light card (black on white)' },
             { value: 'digital', label: 'Digital (LED)' },
-            { value: 'light', label: 'Light card' },
+            { value: 'minimal', label: 'Minimal (no frame)' },
+          ],
+        },
+      })
+      .addRadio({
+        path: 'digitStyle',
+        name: 'Digit style',
+        description:
+          'Classic: theme default (Car highlights the last digit). Uniform: every digit looks the same, like a counter. Decimals: digits after the decimal point use the contrasting colours.',
+        category: ['Display'],
+        defaultValue: DEFAULT_OPTIONS.digitStyle,
+        settings: {
+          options: [
+            { value: 'classic', label: 'Classic' },
+            { value: 'uniform', label: 'Uniform' },
+            { value: 'decimals', label: 'Decimals' },
           ],
         },
       })

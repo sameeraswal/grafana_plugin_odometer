@@ -113,6 +113,29 @@ describe('SimplePanel basics', () => {
   });
 });
 
+describe('digit style', () => {
+  it('defaults to classic and applies the chosen style class', () => {
+    const { unmount } = render(<SimplePanel {...makeProps([nums([49])])} />);
+    expect(screen.getByTestId('odometer-panel').className).toContain('odo-classic');
+    unmount();
+    const u = render(<SimplePanel {...makeProps([nums([49])], { digitStyle: 'uniform' })} />);
+    expect(screen.getByTestId('odometer-panel').className).toContain('odo-uniform');
+    u.unmount();
+    render(<SimplePanel {...makeProps([nums([49.5])], { digitStyle: 'decimals' })} />);
+    expect(screen.getByTestId('odometer-panel').className).toContain('odo-decimals');
+  });
+
+  it('injects the scoped digit-style rules', () => {
+    render(<SimplePanel {...makeProps([nums([49.5])], { digitStyle: 'decimals', theme: 'car' })} />);
+    const injected = Array.from(document.styleSheets)
+      .flatMap((s) => Array.from(s.cssRules))
+      .map((r) => r.cssText)
+      .join('\n');
+    expect(injected).toContain('odo-decimals');
+    expect(injected).toContain('odometer-radix-mark');
+  });
+});
+
 describe('thresholds & effects', () => {
   const config = {
     thresholds: thresholds([

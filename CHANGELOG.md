@@ -2,7 +2,7 @@
 
 ## 1.2.0 (Unreleased)
 
-- Added: themes (Car, Minimal, Digital, Light card).
+- Added: themes (Car, Minimal, Digital, Light card) and a Digit style option (Classic, Uniform, Decimals) so all digits can share one colour scheme or the decimals can contrast.
 - Added: use Grafana's standard Unit, Decimals, Thresholds, Value mappings, No value and Data links options. The old "Decimals" panel option is migrated automatically.
 - Added: choose how a series is reduced (last, first, mean, total, min, max) and an optional thousands separator.
 - Added: colour by thresholds, pulse when critical, flash on change.

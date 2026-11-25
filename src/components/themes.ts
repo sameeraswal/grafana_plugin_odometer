@@ -87,6 +87,16 @@ export const structuralCss = `
 }
 `;
 
+const CAR_HIGHLIGHT = `  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZTBkMyIvPjxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjZWVlMGQzIi8+PHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNiYmFhOWEiLz48c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iI2VlZTBkMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VlZTBkMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eee0d3), color-stop(40%, #eee0d3), color-stop(60%, #bbaa9a), color-stop(80%, #eee0d3), color-stop(100%, #eee0d3));
+  background-image: -moz-linear-gradient(top, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
+  background-image: -webkit-linear-gradient(top, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
+  background-image: linear-gradient(to bottom, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
+  background-color: #eee0d3;
+  color: #000;
+`;
+
 const carCss = `
 .odometer.odometer-theme-car {
   -moz-border-radius: 0.34em;
@@ -118,15 +128,11 @@ const carCss = `
   -moz-border-radius: 0 0.2em 0.2em 0;
   -webkit-border-radius: 0;
   border-radius: 0 0.2em 0.2em 0;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZTBkMyIvPjxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjZWVlMGQzIi8+PHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNiYmFhOWEiLz48c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iI2VlZTBkMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VlZTBkMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eee0d3), color-stop(40%, #eee0d3), color-stop(60%, #bbaa9a), color-stop(80%, #eee0d3), color-stop(100%, #eee0d3));
-  background-image: -moz-linear-gradient(top, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
-  background-image: -webkit-linear-gradient(top, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
-  background-image: linear-gradient(to bottom, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
-  background-color: #eee0d3;
-  color: #000;
 }
+&.odo-classic .odometer.odometer-theme-car .odometer-digit:last-child {
+${CAR_HIGHLIGHT}}
+&.odo-decimals .odometer.odometer-theme-car .odometer-radix-mark ~ .odometer-digit {
+${CAR_HIGHLIGHT}}
 .odometer.odometer-theme-car .odometer-digit .odometer-digit-inner {
   left: 0.15em;
 }
@@ -151,6 +157,9 @@ const minimalCss = `
 .odometer.odometer-theme-minimal .odometer-digit .odometer-digit-inner {
   left: 0.02em;
 }
+&.odo-decimals .odometer.odometer-theme-minimal .odometer-radix-mark ~ .odometer-digit {
+  opacity: 0.55;
+}
 `;
 
 const digitalCss = `
@@ -168,6 +177,12 @@ const digitalCss = `
 }
 .odometer.odometer-theme-digital .odometer-digit .odometer-digit-inner {
   left: 0.05em;
+}
+&.odo-decimals .odometer.odometer-theme-digital .odometer-radix-mark ~ .odometer-digit {
+  background: var(--odo-accent, #39ff14);
+  color: #050805;
+  text-shadow: none;
+  border-radius: 0.06em;
 }
 `;
 
@@ -189,6 +204,11 @@ const lightCss = `
 }
 .odometer.odometer-theme-light .odometer-digit .odometer-digit-inner {
   left: 0.06em;
+}
+&.odo-decimals .odometer.odometer-theme-light .odometer-radix-mark ~ .odometer-digit {
+  background: #111111;
+  color: #ffffff;
+  border-right-color: transparent;
 }
 `;
 

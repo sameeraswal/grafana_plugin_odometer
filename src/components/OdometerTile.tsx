@@ -164,7 +164,7 @@ export const OdometerTile: React.FC<Props> = ({ tile, options, width, height, no
     <div
       data-testid="odometer-panel"
       data-critical={tile.critical ? 'true' : undefined}
-      className={cx(styles.tile, odometerClass)}
+      className={cx(styles.tile, odometerClass, `odo-${options.digitStyle}`)}
       style={{ width, height, ['--odo-accent' as string]: accent }}
     >
       {showLabel && <div className={styles.small}>{tile.label}</div>}

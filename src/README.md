@@ -5,7 +5,8 @@ A Grafana panel that shows a number as an animated odometer (rolling digits) or 
 ## Features
 
 - **Two animations:** *Odometer* (rolling digits) or *Counter* (counts up or down), with a configurable duration.
-- **Four themes:** Car (dashboard), Minimal, Digital (LED) and Light card.
+- **Four themes:** Car (white on black), Light card (black on white), Digital (LED) and Minimal (no frame).
+- **Digit style:** Classic, *Uniform* (every digit looks the same, like a plain counter) or *Decimals* (digits after the decimal point use the contrasting colours, e.g. 49.5 shows the 5 in contrast).
 - **Units, decimals and "No value"** from Grafana's standard options, plus an optional thousands separator.
 - **Value reduction:** show the last, first, mean, total, min or max of a series.
 - **Thresholds to colour:** tint the odometer by the standard Thresholds / Color scheme options, optionally pulsing while the value is in the highest (critical) range. Value mappings can show text such as "OK" or "Down".

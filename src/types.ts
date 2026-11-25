@@ -1,4 +1,5 @@
 export type AnimationType = 'odometer' | 'count';
+export type DigitStyle = 'classic' | 'uniform' | 'decimals';
 export type ThemeName = 'car' | 'minimal' | 'digital' | 'light';
 export type ReducerOption = 'lastNotNull' | 'last' | 'first' | 'mean' | 'sum' | 'min' | 'max';
 export type LayoutMode = 'single' | 'grid';
@@ -15,6 +16,8 @@ export interface SimpleOptions {
   layout: LayoutMode;
   reduce: ReducerOption;
   theme: ThemeName;
+  /** classic: theme default (car highlights the last digit); uniform: all digits alike; decimals: digits after the decimal point contrast. */
+  digitStyle: DigitStyle;
   thousandsSeparator: boolean;
   showSparkline: boolean;
 
@@ -45,6 +48,7 @@ export const DEFAULT_OPTIONS: SimpleOptions = {
   layout: 'single',
   reduce: 'lastNotNull',
   theme: 'car',
+  digitStyle: 'classic',
   thousandsSeparator: false,
   showSparkline: false,
 
