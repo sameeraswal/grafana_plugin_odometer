@@ -1,30 +1,13 @@
-import { DataFrame } from '@grafana/data';
 import { AnimationType, DEFAULT_OPTIONS } from './types';
 
 /**
- * Returns the last finite value of the first numeric field found in the series,
- * or 0 when there is no usable data.
+ * Builds the odometer.js format string, e.g. decimals=2 -> "(d).dd", with thousands separator "(,ddd).dd".
+ * odometer.js needs the parentheses to find the radix.
  */
-export function getLatestValue(series: DataFrame[] | undefined): number {
-  for (const frame of series ?? []) {
-    const field = frame.fields.find((f) => f.type === 'number');
-    if (!field) {
-      continue;
-    }
-    for (let i = field.values.length - 1; i >= 0; i--) {
-      const value = field.values[i];
-      if (typeof value === 'number' && Number.isFinite(value)) {
-        return value;
-      }
-    }
-  }
-  return 0;
-}
-
-/** Builds the odometer.js format string, e.g. decimals=2 -> "(d).dd" (odometer.js needs the parentheses to find the radix). */
-export function getFormat(decimals: number | undefined): string {
+export function getFormat(decimals: number | undefined, thousandsSeparator = false): string {
   const n = Math.min(Math.max(Math.trunc(Number(decimals)) || 0, 0), 10);
-  return n === 0 ? 'd' : `(d).${'d'.repeat(n)}`;
+  const whole = thousandsSeparator ? ',ddd' : 'd';
+  return n === 0 ? (thousandsSeparator ? '(,ddd)' : 'd') : `(${whole}).${'d'.repeat(n)}`;
 }
 
 /**

@@ -1,28 +1,34 @@
 /**
- * Odometer "car" theme, adapted from HubSpot/odometer (MIT):
- * https://github.com/HubSpot/odometer/blob/master/themes/odometer-theme-car.css
+ * Odometer themes. The structure rules are shared; each theme only adds visuals.
+ * Colours come from the CSS variable --odo-accent (set from the field's thresholds when
+ * "Color by thresholds" is on) with a sensible default per theme.
  *
- * Kept as a string and applied with Emotion's `css` (scoped to the panel) because
- * Grafana plugins must not import .css files directly. Differences from upstream:
- * no Google Fonts @import (system font fallback instead) and no IE6/7 `*` hacks.
+ * "car" is adapted from HubSpot/odometer (MIT):
+ * https://github.com/HubSpot/odometer/blob/master/themes/odometer-theme-car.css
+ * Kept as strings and applied with Emotion's `css` because Grafana plugins must not
+ * import .css files directly. No Google Fonts @import and no IE6/7 `*` hacks.
  */
-export const odometerCss = `
-.odometer.odometer-auto-theme, .odometer.odometer-theme-car {
+import { ThemeName } from '../types';
+
+const FONT = '"Arimo", "Helvetica Neue", Arial, sans-serif';
+
+export const structuralCss = `
+.odometer {
   display: inline-block;
   vertical-align: middle;
   position: relative;
 }
-.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-car .odometer-digit {
+.odometer .odometer-digit {
   display: inline-block;
   vertical-align: middle;
   position: relative;
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-car .odometer-digit .odometer-digit-spacer {
+.odometer .odometer-digit .odometer-digit-spacer {
   display: inline-block;
   vertical-align: middle;
   visibility: hidden;
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-car .odometer-digit .odometer-digit-inner {
+.odometer .odometer-digit .odometer-digit-inner {
   text-align: left;
   display: block;
   position: absolute;
@@ -32,42 +38,42 @@ export const odometerCss = `
   bottom: 0;
   overflow: hidden;
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon, .odometer.odometer-theme-car .odometer-digit .odometer-ribbon {
+.odometer .odometer-digit .odometer-ribbon {
   display: block;
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-car .odometer-digit .odometer-ribbon-inner {
+.odometer .odometer-digit .odometer-ribbon-inner {
   display: block;
   -webkit-backface-visibility: hidden;
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-car .odometer-digit .odometer-value {
+.odometer .odometer-digit .odometer-value {
   display: block;
   -webkit-transform: translateZ(0);
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-car .odometer-digit .odometer-value.odometer-last-value {
+.odometer .odometer-digit .odometer-value.odometer-last-value {
   position: absolute;
 }
-.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-up .odometer-ribbon-inner {
+.odometer.odometer-animating-up .odometer-ribbon-inner {
   -webkit-transition: -webkit-transform 2s;
   -moz-transition: -moz-transform 2s;
   -ms-transition: -ms-transform 2s;
   -o-transition: -o-transform 2s;
   transition: transform 2s;
 }
-.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
+.odometer.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%);
 }
-.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-down .odometer-ribbon-inner {
+.odometer.odometer-animating-down .odometer-ribbon-inner {
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   -o-transform: translateY(-100%);
   transform: translateY(-100%);
 }
-.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+.odometer.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
   -webkit-transition: -webkit-transform 2s;
   -moz-transition: -moz-transform 2s;
   -ms-transition: -ms-transform 2s;
@@ -79,17 +85,19 @@ export const odometerCss = `
   -o-transform: translateY(0);
   transform: translateY(0);
 }
+`;
 
-.odometer.odometer-auto-theme, .odometer.odometer-theme-car {
+const carCss = `
+.odometer.odometer-theme-car {
   -moz-border-radius: 0.34em;
   -webkit-border-radius: 0.34em;
   border-radius: 0.34em;
   font-family: "Arimo", "Helvetica Neue", Arial, sans-serif;
   padding: 0.15em;
-  background: #000;
+  background: var(--odo-accent, #000);
   color: #eee0d3;
 }
-.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-car .odometer-digit {
+.odometer.odometer-theme-car .odometer-digit {
   -moz-box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
@@ -101,12 +109,12 @@ export const odometerCss = `
   background-image: linear-gradient(to bottom, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
   padding: 0 0.15em;
 }
-.odometer.odometer-auto-theme .odometer-digit:first-child, .odometer.odometer-theme-car .odometer-digit:first-child {
+.odometer.odometer-theme-car .odometer-digit:first-child {
   -moz-border-radius: 0.2em 0 0 0.2em;
   -webkit-border-radius: 0.2em;
   border-radius: 0.2em 0 0 0.2em;
 }
-.odometer.odometer-auto-theme .odometer-digit:last-child, .odometer.odometer-theme-car .odometer-digit:last-child {
+.odometer.odometer-theme-car .odometer-digit:last-child {
   -moz-border-radius: 0 0.2em 0.2em 0;
   -webkit-border-radius: 0;
   border-radius: 0 0.2em 0.2em 0;
@@ -119,17 +127,79 @@ export const odometerCss = `
   background-color: #eee0d3;
   color: #000;
 }
-.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-car .odometer-digit .odometer-digit-inner {
+.odometer.odometer-theme-car .odometer-digit .odometer-digit-inner {
   left: 0.15em;
 }
-.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+.odometer.odometer-theme-car.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
   -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -ms-transition-timing-function: linear;
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-.odometer {
-    font-size: 100px;
+`;
+
+const minimalCss = `
+.odometer.odometer-theme-minimal {
+  font-family: ${FONT};
+  color: var(--odo-accent, inherit);
+  line-height: 1;
+}
+.odometer.odometer-theme-minimal .odometer-digit {
+  padding: 0 0.02em;
+}
+.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-inner {
+  left: 0.02em;
 }
 `;
+
+const digitalCss = `
+.odometer.odometer-theme-digital {
+  font-family: "Courier New", Courier, monospace;
+  background: #050805;
+  color: var(--odo-accent, #39ff14);
+  padding: 0.12em 0.16em;
+  border-radius: 0.14em;
+  text-shadow: 0 0 0.22em currentColor;
+  box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.9);
+}
+.odometer.odometer-theme-digital .odometer-digit {
+  padding: 0 0.05em;
+}
+.odometer.odometer-theme-digital .odometer-digit .odometer-digit-inner {
+  left: 0.05em;
+}
+`;
+
+const lightCss = `
+.odometer.odometer-theme-light {
+  font-family: ${FONT};
+  background: #ffffff;
+  color: var(--odo-accent, #111111);
+  padding: 0.08em 0.14em;
+  border-radius: 0.2em;
+  box-shadow: 0 0.03em 0.18em rgba(0, 0, 0, 0.3);
+}
+.odometer.odometer-theme-light .odometer-digit {
+  padding: 0 0.06em;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+.odometer.odometer-theme-light .odometer-digit:last-child {
+  border-right: 0;
+}
+.odometer.odometer-theme-light .odometer-digit .odometer-digit-inner {
+  left: 0.06em;
+}
+`;
+
+export const THEME_CSS: Record<ThemeName, string> = {
+  car: carCss,
+  minimal: minimalCss,
+  digital: digitalCss,
+  light: lightCss,
+};
+
+/** Shared structure + the chosen theme's visuals (falls back to "car" for unknown names). */
+export function getThemeCss(theme: ThemeName | string | undefined): string {
+  return structuralCss + (THEME_CSS[theme as ThemeName] ?? THEME_CSS.car);
+}

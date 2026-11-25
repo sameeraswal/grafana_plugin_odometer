@@ -87,7 +87,7 @@
         "y": 8
       },
       "id": 3,
-      "title": "Counter, 2 decimals",
+      "title": "Legacy 1.1.x options (migrated)",
       "type": "sameeraswal-odometer-panel",
       "options": {
         "showAdvancedOptions": true,
@@ -106,6 +106,241 @@
           "stringInput": "1,2,3.14159"
         }
       ]
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 4,
+      "title": "Thresholds: digital + pulse",
+      "type": "sameeraswal-odometer-panel",
+      "options": {
+        "theme": "digital",
+        "colorByThresholds": true,
+        "pulseWhenCritical": true,
+        "flashOnChange": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "10,40,95"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "decimals": 0,
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "value": null,
+                "color": "green"
+              },
+              {
+                "value": 50,
+                "color": "orange"
+              },
+              {
+                "value": 80,
+                "color": "red"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 5,
+      "title": "Target 10,000 (light + sparkline)",
+      "type": "sameeraswal-odometer-panel",
+      "options": {
+        "theme": "light",
+        "showTarget": true,
+        "target": 10000,
+        "deltaFormat": "both",
+        "thousandsSeparator": true,
+        "showSparkline": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "2000,5000,8000,12345"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyINR",
+          "decimals": 0
+        },
+        "overrides": []
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 6,
+      "title": "Grid (minimal, coloured)",
+      "type": "sameeraswal-odometer-panel",
+      "options": {
+        "layout": "grid",
+        "theme": "minimal",
+        "colorByThresholds": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "10,40,60"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "B",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "20,30,95"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "value": null,
+                "color": "green"
+              },
+              {
+                "value": 50,
+                "color": "orange"
+              },
+              {
+                "value": 80,
+                "color": "red"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 7,
+      "title": "Stale data warning",
+      "type": "sameeraswal-odometer-panel",
+      "options": {
+        "showStale": true,
+        "staleMinutes": 15
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content",
+          "csvContent": "time,value\n2020-01-01T00:00:00Z,5\n2020-01-01T00:01:00Z,7"
+        }
+      ]
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 8,
+      "title": "Pro-rated target (lower is better)",
+      "type": "sameeraswal-odometer-panel",
+      "options": {
+        "showTarget": true,
+        "target": 100,
+        "targetMode": "prorated",
+        "lowerIsBetter": true,
+        "theme": "car"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "10,20,45"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0
+        },
+        "overrides": []
+      }
     }
   ],
   "refresh": "",
