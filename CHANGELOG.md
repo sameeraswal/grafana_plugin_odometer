@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.0 (Unreleased)
+
+- Added: themes (Car, Minimal, Digital, Light card) and a Digit style option (Classic, Uniform, Decimals) so all digits can share one colour scheme or the decimals can contrast.
+- Added: use Grafana's standard Unit, Decimals, Thresholds, Value mappings, No value and Data links options. The old "Decimals" panel option is migrated automatically.
+- Added: choose how a series is reduced (last, first, mean, total, min, max) and an optional thousands separator.
+- Added: colour by thresholds, pulse when critical, flash on change.
+- Added: typed target with delta (amount, percent or both), progress bar, pro-rated targets and "lower is better".
+- Added: stale-data warning, sparkline and a grid layout with one odometer per numeric field.
+- Removed: the "Advanced Options" switch; the animation settings are always visible.
+
 ## 1.1.1
 
 - Fixed: replaced the direct CSS import with CSS-in-JS (Emotion), as required by the Grafana plugin review.

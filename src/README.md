@@ -1,79 +1,34 @@
-<!-- This README file is going to be the one displayed on the Grafana.com website for your plugin. Uncomment and replace the content here before publishing.
-
-Remove any remaining comments before publishing as these may be displayed on Grafana.com -->
 # Odometer
 
-Description:
-The Grafana Odometer Plugin is a visualization tool designed to display counters in the form of an odometer. It adds a dynamic and engaging element to your Grafana dashboards, making your data come alive as the numbers change in a manner similar to how digits move in a physical meter.
+A Grafana panel that shows a number as an animated odometer (rolling digits) or counter. It adds a lively element to dashboards: numbers roll to their new value like the digits of a mechanical meter.
 
-Features:
-This plugin offers two distinct types of animations:
+## Features
 
-1. Odometer Animation:
-With the Odometer animation, your numbers will move gracefully, just like the digits in a traditional mechanical meter. This style of animation brings a touch of elegance and nostalgia to your data visualization.
+- **Two animations:** *Odometer* (rolling digits) or *Counter* (counts up or down), with a configurable duration.
+- **Four themes:** Car (white on black), Light card (black on white), Digital (LED) and Minimal (no frame).
+- **Digit style:** Classic, *Uniform* (every digit looks the same, like a plain counter) or *Decimals* (digits after the decimal point use the contrasting colours, e.g. 49.5 shows the 5 in contrast).
+- **Units, decimals and "No value"** from Grafana's standard options, plus an optional thousands separator.
+- **Value reduction:** show the last, first, mean, total, min or max of a series.
+- **Thresholds to colour:** tint the odometer by the standard Thresholds / Color scheme options, optionally pulsing while the value is in the highest (critical) range. Value mappings can show text such as "OK" or "Down".
+- **Target and delta:** type in a target and see the difference as an amount, a percentage or both, with a progress bar and good/bad colouring ("lower is better" supported). A *pro-rated* target compares you with where you should be by now, across the dashboard time range.
+- **Stale data warning** when no new data has arrived for a number of minutes.
+- **Flash on change**, a **sparkline** under the value, and Grafana **data links**.
+- **Grid layout:** one odometer per numeric field.
 
-2. Counter Animation:
-The Counter animation, on the other hand, simulates the way numbers change in a digital meter. It offers a modern and sleek representation, making your data feel contemporary and cutting-edge.
+Every feature has its own switch in the panel options, and all are off by default except the basics, so existing dashboards look the same.
 
-Installation:
-To install this Grafana Odometer Plugin, follow these steps:
+## Usage
 
-1. Download the plugin zip file from [https://github.com/sameeraswal/grafana_plugin_odometer/raw/v1.0.0/sameeraswal-odometer-panel-1.0.0.zip].
-2. Extract the contents to your Grafana plugins directory, which is typically located at 'data/plugins' or '/var/lib/grafana/plugins' on a Unix-based system.
-3. Restart your Grafana server to activate the plugin.
+1. Add a panel and choose the **Odometer** visualization.
+2. Pick a data source and a query that returns a numeric field.
+3. Use the **Display**, **Animation**, **Thresholds & effects**, **Target** and **Stale data** option groups. The standard Unit, Decimals, Thresholds, Value mappings and Data links options work as in other panels.
 
-Usage:
-1. After installation, you can add the Odometer visualization to your Grafana dashboard.
+## Installation
 
-2. Create or edit a panel and select the Odometer visualization from the list of available visualizations.
+Install from the Grafana plugin catalog, or download a release zip from [GitHub](https://github.com/sameeraswal/grafana_plugin_odometer/releases), extract it into your Grafana plugins directory (for example `/var/lib/grafana/plugins`) and restart Grafana.
 
-3. Configure the panel settings, including data sources and queries, to display your desired metrics.
+## Notes
 
-4. Customize the animation type to choose between the Odometer and Counter animations.
-
-5. Save the panel configuration, and the Odometer visualization will display your data with the selected animation style.
-
-
-<!-- To help maximize the impact of your README and improve usability for users, we propose the following loose structure:
-
-**BEFORE YOU BEGIN**
-- Ensure all links are absolute URLs so that they will work when the README is displayed within Grafana and Grafana.com
-- Be inspired ✨ 
-  - [grafana-polystat-panel](https://github.com/grafana/grafana-polystat-panel)
-  - [volkovlabs-variable-panel](https://github.com/volkovlabs/volkovlabs-variable-panel)
-
-**ADD SOME BADGES**
-
-Badges convey useful information at a glance for users whether in the Catalog or viewing the source code. You can use the generator on [Shields.io](https://shields.io/badges/dynamic-json-badge) together with the Grafana.com API 
-to create dynamic badges that update automatically when you publish a new version to the marketplace.
-
-- For the logo field use 'grafana'.
-- Examples (label: query)
-  - Downloads: $.downloads
-  - Catalog Version: $.version
-  - Grafana Dependency: $.grafanaDependency
-  - Signature Type: $.versionSignatureType
-
-Full example: ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?logo=grafana&query=$.version&url=https://grafana.com/api/plugins/grafana-polystat-panel&label=Marketplace&prefix=v&color=F47A20)
-
-Consider other [badges](https://shields.io/badges) as you feel appropriate for your project.
-
-## Overview / Introduction
-Provide one or more paragraphs as an introduction to your plugin to help users understand why they should use it.  
-
-Consider including screenshots:
-- in [plugin.json](https://grafana.com/docs/grafana/latest/developers/plugins/metadata/#info) include them as relative links.
-- in the README ensure they are absolute URLs.
-
-## Requirements
-List any requirements or dependencies they may need to run the plugin.
-
-## Getting Started
-Provide a quick start on how to configure and use the plugin.
-
-## Documentation
-If your project has dedicated documentation available for users, provide links here. For help in following Grafana's style recommendations for technical documentation, refer to our [Writer's Toolkit](https://grafana.com/docs/writers-toolkit/).
-
-## Contributing
-Do you want folks to contribute to the plugin or provide feedback through specific means? If so, tell them how!
--->
+- Targets are typed in the same unit as the value.
+- The stale-data warning needs a time field in the query result.
+- Alerts themselves are created with Grafana alert rules on the same query; use the same numbers as the panel's thresholds so the colours match.
