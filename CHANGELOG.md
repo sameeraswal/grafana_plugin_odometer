@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0 (Unreleased)
+## 1.2.0
 
 - Added: themes (Car, Minimal, Digital, Light card) and a Digit style option (Classic, Uniform, Decimals) so all digits can share one colour scheme or the decimals can contrast.
 - Added: use Grafana's standard Unit, Decimals, Thresholds, Value mappings, No value and Data links options. The old "Decimals" panel option is migrated automatically.
