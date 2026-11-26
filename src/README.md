@@ -23,10 +23,6 @@ Every feature has its own switch in the panel options, and all are off by defaul
 2. Pick a data source and a query that returns a numeric field.
 3. Use the **Display**, **Animation**, **Thresholds & effects**, **Target** and **Stale data** option groups. The standard Unit, Decimals, Thresholds, Value mappings and Data links options work as in other panels.
 
-## Installation
-
-Install from the Grafana plugin catalog, or download a release zip from [GitHub](https://github.com/sameeraswal/grafana_plugin_odometer/releases), extract it into your Grafana plugins directory (for example `/var/lib/grafana/plugins`) and restart Grafana.
-
 ## Notes
 
 - Targets are typed in the same unit as the value.

@@ -18,6 +18,27 @@ describe('migrateOptions', () => {
     expect(panel.fieldConfig.defaults.decimals).toBe(4);
   });
 
+  it('maps the 1.0.0 animationType "undefined" to "odometer"', () => {
+    const out = migrateOptions({ options: { animationType: 'undefined', duration: 3000 } as any });
+    expect(out.animationType).toBe('odometer');
+    expect(out.duration).toBe(3000);
+  });
+
+  it('maps an empty animationType to "odometer" but leaves valid values and absent keys alone', () => {
+    expect(migrateOptions({ options: { animationType: null } as any }).animationType).toBe('odometer');
+    expect(migrateOptions({ options: { animationType: 'count' } as any }).animationType).toBe('count');
+    expect(migrateOptions({ options: { animationType: 'odometer' } as any }).animationType).toBe('odometer');
+    expect(migrateOptions({ options: { duration: 100 } as any })).not.toHaveProperty('animationType');
+  });
+
+  it('migrates a complete 1.0.0 panel', () => {
+    const panel = {
+      options: { showAdvancedOptions: true, animationType: 'undefined' } as any,
+      fieldConfig: { defaults: {} as any },
+    };
+    expect(migrateOptions(panel)).toEqual({ animationType: 'odometer' });
+  });
+
   it('drops the legacy showAdvancedOptions flag and tolerates missing fieldConfig', () => {
     const out = migrateOptions({ options: { showAdvancedOptions: true, duration: 100 } as any });
     expect(out).toEqual({ duration: 100 });

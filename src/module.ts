@@ -3,8 +3,10 @@ import { DEFAULT_OPTIONS, SimpleOptions } from './types';
 import { SimplePanel } from './components/SimplePanel';
 
 /**
- * Plugin <=1.1.x had a custom "decimals" panel option; it is now Grafana's standard
- * "Decimals" field option. Move any saved value across so existing dashboards look the same.
+ * Upgrades options saved by older versions so existing dashboards look the same:
+ * - <=1.1.x had a custom "decimals" panel option; it is now Grafana's standard "Decimals" field option.
+ * - 1.0.0 stored the Odometer animation as the string "undefined", which matches no radio option in the
+ *   editor; it is now "odometer".
  */
 export function migrateOptions(panel: {
   options?: Partial<SimpleOptions>;
@@ -14,6 +16,9 @@ export function migrateOptions(panel: {
   void showAdvancedOptions;
   if (decimals !== undefined && panel.fieldConfig?.defaults && panel.fieldConfig.defaults.decimals == null) {
     panel.fieldConfig.defaults.decimals = decimals;
+  }
+  if ('animationType' in rest && rest.animationType !== 'odometer' && rest.animationType !== 'count') {
+    rest.animationType = 'odometer';
   }
   return rest;
 }
