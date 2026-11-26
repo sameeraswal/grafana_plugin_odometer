@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1
+
+- Fixed: panels saved with 1.0.0 now show "Odometer" selected as the Animation type in the panel editor.
+- Changed: removed the Installation section from the README (the catalog page shows install instructions).
+
 ## 1.2.0
 
 - Added: themes (Car, Minimal, Digital, Light card) and a Digit style option (Classic, Uniform, Decimals) so all digits can share one colour scheme or the decimals can contrast.

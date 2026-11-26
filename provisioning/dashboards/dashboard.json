@@ -449,6 +449,36 @@
         },
         "overrides": []
       }
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 40
+      },
+      "id": 12,
+      "title": "Legacy 1.0.0 options (migrated)",
+      "type": "sameeraswal-odometer-panel",
+      "options": {
+        "showAdvancedOptions": false,
+        "animationType": "undefined"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "1,20,777"
+        }
+      ]
     }
   ],
   "refresh": "",
